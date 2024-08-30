@@ -30,14 +30,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/customer-app:latest
 
-      - name: Build and push customer-db image
-        uses: docker/build-push-action@v5
-        with:
-          context: ./path-to-mysql-dockerfile
-          file: ./path-to-mysql-dockerfile/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/customer-db:latest
-
-      - name: Deploy to Docker Compose
+      - name: Deploy with Docker Compose
         run: |
+          docker-compose pull
           docker-compose up -d
