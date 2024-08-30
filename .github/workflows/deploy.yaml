@@ -46,6 +46,7 @@ jobs:
 
       - name: Deploy using Docker Compose
         run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker-compose pull
           docker-compose up -d
         env:
