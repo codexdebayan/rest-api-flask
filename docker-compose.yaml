@@ -3,7 +3,7 @@ version: '3.8'
 services:
   customer-db:
     # image: mysql:8.0
-    image: customer-db
+    image: codexdebayan/customer-db
     container_name: customer-db
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -16,7 +16,7 @@ services:
       - customer-network
 
   customer-app:
-    image: customer-app
+    image: codexdebayan/customer-app
     container_name: customer-app
     environment:
       SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:root@customer-db:3306/customer_db
