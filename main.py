@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template, abort
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+# db config
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
