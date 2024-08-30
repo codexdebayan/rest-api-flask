@@ -36,6 +36,4 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/customer-app:latest
 
       - name: Deploy with Docker Compose
-        run: |
-          docker-compose pull
-          docker-compose up -d
+        run: docker-compose up
