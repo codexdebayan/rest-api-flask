@@ -1,0 +1,13 @@
+# Use the official MySQL 8.0 image as the base
+FROM mysql:8.0
+
+# Set environment variables for MySQL
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=customer_db
+
+# Copy any custom configuration or initialization scripts to the container
+# For example, if you have an SQL script to initialize the database
+# COPY init.sql /docker-entrypoint-initdb.d/
+
+# Expose port 3306
+EXPOSE 3306
