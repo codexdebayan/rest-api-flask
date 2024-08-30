@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy using Docker Compose
         run: |
-          docker-compose pull
-          docker-compose up -d
+
+          docker-compose up
         env:
           DOCKER_BUILDKIT: 1
