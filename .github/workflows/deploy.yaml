@@ -31,16 +31,16 @@ jobs:
       - name: Build and push customer-db image
         uses: docker/build-push-action@v5
         with:
-          context: ./customer_db_dockerfile  # Path to the directory with Dockerfile for customer-db
-          file: ./customer_db_dockerfile/Dockerfile  # Dockerfile for customer-db
+          context: ./customer_db_dockerfile
+          file: ./customer_db_dockerfile/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/customer-db:latest
 
       - name: Build and push customer-app image
         uses: docker/build-push-action@v5
         with:
-          context: .  # Path to your customer-app Dockerfile
-          file: ./dockerfile  # Dockerfile for customer-app
+          context: .
+          file: ./dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/customer-app:latest
 
