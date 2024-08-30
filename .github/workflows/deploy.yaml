@@ -1,0 +1,43 @@
+name: Docker Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push customer-app image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/customer-app:latest
+
+      - name: Build and push customer-db image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./path-to-mysql-dockerfile
+          file: ./path-to-mysql-dockerfile/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/customer-db:latest
+
+      - name: Deploy to Docker Compose
+        run: |
+          docker-compose up -d
