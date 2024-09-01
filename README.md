@@ -40,7 +40,10 @@ This project is a REST API built with Flask and MySQL, containerized using Docke
 ## Usage
 
 * List customers: GET /customers
+* Get details of a particular customer : GET /customer/{id}
 * Add a customer: POST /customers
+* Update a customer: PUT /customers/{id}
+* Delete a customer: DELETE /customers/{id}
 
 ## CI/CD
 This project uses GitHub Actions for continuous integration and deployment. Each push triggers automated testing and deployment.
