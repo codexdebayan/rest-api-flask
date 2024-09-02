@@ -65,7 +65,3 @@ export SQLALCHEMY_DATABASE_URI='mysql+pymysql://root:root@customer_db:3306/custo
 ```
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-```go
-This raw markdown can be directly used in your `README.md` file for the project.
-```
